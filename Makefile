@@ -5,6 +5,7 @@ FLAGS = -Wall -Wextra -Werror
 
 SRC =	push_swap.c \
 		freeit.c \
+		create_stack.c \
 
 
 all: $(SRC)

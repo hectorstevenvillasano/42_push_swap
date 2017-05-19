@@ -14,6 +14,8 @@ typedef struct s_stack
 
 /** freeit.c **/
 void free_split(char ***split);
+/** create_stack.c **/
+int create_stack(int ac, char **av, t_list **stack);
 
 
 

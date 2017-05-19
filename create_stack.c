@@ -1,3 +1,6 @@
+#include "push_swap.h"
+
+
 static int check_dups(t_list *stack, int *value)
 {
 	while (stack)
@@ -8,8 +11,6 @@ static int check_dups(t_list *stack, int *value)
 	}
 	return (0);
 }
-
-
 
 static int av_to_int(char *av, int *value)
 {
@@ -41,7 +42,7 @@ static int av_to_int(char *av, int *value)
 }
 
 
-int addstackarray(t_list **stack, char *av)
+static int addstackarray(t_list **stack, char *av)
 {
 	char	**split;
 	int		value;
