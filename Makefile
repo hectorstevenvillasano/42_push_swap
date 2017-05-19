@@ -7,6 +7,7 @@ SRC =	push_swap.c \
 		freeit.c \
 		create_stack.c \
 		solver.c \
+		struct.c \
 
 
 all: $(SRC)

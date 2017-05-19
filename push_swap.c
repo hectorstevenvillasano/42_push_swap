@@ -36,15 +36,19 @@ void print_stacks(t_list *stacka, t_list *stackb)
 
 int main(int ac, char **av)
 {
-//	t_stack	*stack;
-	t_list	*a;
+	t_stack	*stack;
 
-	a = NULL;
-	//stack = initstack();
-	if (create_stack(ac, av, &a)) //&stack)) //|| solver(&stack))
+	stack = initstack();
+	if (create_stack(ac, av, &stack->a)) //&stack)) //|| solver(&stack))
 	{
 		write(2, "Error\n", 6);
 		return (0);
+	}
+	stack->b = NULL;
+	while (*stack->a)
+	{
+		printf("%i ", *stack->a);
+		stack->a++;
 	}
 	//print_stack(a);
 	return (0);

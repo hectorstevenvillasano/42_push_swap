@@ -15,9 +15,12 @@ typedef struct s_stack
 /** freeit.c **/
 void free_split(char ***split);
 /** create_stack.c **/
-int create_stack(int ac, char **av, t_list **stack);
+int create_stack(int ac, char **av, int **ar);
+int list_len(t_list *ls);
 
 /** solver.c **/
+
+int *init_array(int size);
 
 
 #endif

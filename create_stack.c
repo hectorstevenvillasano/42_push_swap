@@ -12,7 +12,7 @@ static int check_dups(t_list *stack, int *value)
 	return (0);
 }
 
-int list_size(t_list *ls)
+int list_len(t_list *ls)
 {
 	int len;
 
@@ -80,35 +80,33 @@ static int addstackarray(t_list **stack, char *av)
 	return (0);
 }
 
-int *moveto_array(t_list *stacka, int stacka_len)
+int *moveto_array(t_list *stack, int stack_len)
 {
 	int *a;
 	int i;
 
 	i = 0;
-	a = (int*)malloc(sizeof(int) * stacka_len + 1);
-	while (stacka)
+	a = init_array(stack_len);
+	while (stack)
 	{
-		a[i] = *(int*)stacka->content;
+		a[i] = *(int*)stack->content;
 		i++;
-		stacka = stacka->next;
+		stack = stack->next;
 	}
+
 	return (a);
 }
 
-int create_stack(int ac, char **av, t_list **stack)//, t_stack **ls)
+int create_stack(int ac, char **av, int **ar)
 {
-	int *ls;
+	t_list *a;
+
+	a = NULL;
 	while (--ac)
 	{
-		if (addstackarray(stack, av[ac]))
+		if (addstackarray(&a, av[ac]))
 			return (1);
 	}
-	ls = moveto_array(*stack, list_size(*stack));
-	while (*ls)
-	{
-		printf("%i ", *ls);
-		ls++;
-	}
+	*ar = moveto_array(a, list_len(a));
 	return (0);
 }
