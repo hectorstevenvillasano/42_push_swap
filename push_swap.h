@@ -7,8 +7,8 @@
 
 typedef struct s_stack
 {
-	t_list **a;
-	t_list **b;
+	int	*a;
+	int	*b;
 
 }				t_stack;
 
@@ -17,6 +17,7 @@ void free_split(char ***split);
 /** create_stack.c **/
 int create_stack(int ac, char **av, t_list **stack);
 
+/** solver.c **/
 
 
 #endif

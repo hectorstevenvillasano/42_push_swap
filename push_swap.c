@@ -1,35 +1,51 @@
 #include "push_swap.h"
 
-void initstack(t_stack stack)
+t_stack *initstack(void)
 {
-	*stack.a = NULL;
-	*stack.b = NULL;
+	t_stack *stack;
+
+	stack = (t_stack*)malloc(sizeof(t_stack));
+	stack->a = NULL;
+	stack->b = NULL;
+	return (stack);
 }
 
-void printls(t_list *stack)
+
+
+void print_stack(t_list *stack)
 {
 	while(stack)
 	{
-		printf("%i\n", *(int*)(stack->content));
+		ft_putnbr(*(int*)(stack->content));
+		if (stack->next)
+			ft_putstr(" ");
 		stack = stack->next;
 	}
+	ft_putchar('\n');
+}
+
+void print_stacks(t_list *stacka, t_list *stackb)
+{
+	ft_putstr("a|");
+	print_stack(stacka);
+	ft_putstr("\n");
+	ft_putstr("b|");
+	print_stack(stackb);
 }
 
 
 int main(int ac, char **av)
 {
-	t_stack	stack;
+//	t_stack	*stack;
 	t_list	*a;
-	t_list	*b;
 
-	stack.a = &a;
-	stack.b = &b;
-	initstack(stack);
-	if (create_stack(ac, av, &a))
+	a = NULL;
+	//stack = initstack();
+	if (create_stack(ac, av, &a)) //&stack)) //|| solver(&stack))
 	{
 		write(2, "Error\n", 6);
 		return (0);
 	}
-	printls(*stack.a);
+	//print_stack(a);
 	return (0);
 }
