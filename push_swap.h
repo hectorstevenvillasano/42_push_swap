@@ -12,5 +12,9 @@ typedef struct s_stack
 
 }				t_stack;
 
+/** freeit.c **/
+void free_split(char ***split);
+
+
 
 #endif

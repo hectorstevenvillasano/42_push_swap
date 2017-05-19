@@ -6,14 +6,37 @@ void initstack(t_stack stack)
 	*stack.b = NULL;
 }
 
+#include "push_swap.h"
 
-int pars_av(char *av, int *value)
+void printls(t_list *stack)
+{
+	while(stack)
+	{
+		printf("%i\n", *(int*)(stack->content));
+		stack = stack->next;
+	}
+}
+
+static int check_dups(t_list *stack, int *value)
+{
+	while (stack)
+	{
+		if (*(int*)stack->content == *value)
+			return (1);
+		stack = stack->next;
+	}
+	return (0);
+}
+
+
+
+static int pars_av(char *av, int *value)
 {
 	int		num;
 	int		neg;
 
 	num = 0;
-	neg = 0;
+	neg = 1;
 	if (!av)
 		return (1);
 	if (*av == '-')
@@ -30,7 +53,7 @@ int pars_av(char *av, int *value)
 		if ((neg == 1 && num < 0) || (neg == -1 && num > 0))
 			return (1);
 	}
-	if (*av)
+	if (*av != '\0')
 		return (1);
 	*value = num;
 	return (0);
@@ -40,7 +63,7 @@ int pars_av(char *av, int *value)
 int addstackarray(t_list **stack, char *av)
 {
 	char	**split;
-	int		nb;
+	int		value;
 	int		i;
 
 	i = 0;
@@ -51,27 +74,25 @@ int addstackarray(t_list **stack, char *av)
 	while (i)
 	{
 		i--;
-		if (!(nb = ft_atoi(split[i])))
+		if (pars_av(split[i], &value) || check_dups(*stack, &value))
+		{
+			free_split(&split);
 			return (1);
-		//ft_putendl(split[i]);
-		printf("%i\n", nb);
+		}
+		ft_lstadd(stack, ft_lstnew(&value, sizeof(int)));
 	}
-
-
-	//ft_lstadd(stack, ft_lstnew(&nb, sizeof(int)));
-
-
+	free_split(&split);
 	return (0);
 }
 
-int create_stack(int ac, char **av, t_list **stacka)
+int create_stack(int ac, char **av, t_list **stack)
 {
-	//stack = NULL;
 	while (--ac)
 	{
-		if (addstackarray(stacka, av[ac]))
+		if (addstackarray(stack, av[ac]))
 			return (1);
 	}
+	//printls(*stack);
 	return (0);
 }
 
@@ -89,5 +110,6 @@ int main(int ac, char **av)
 		write(2, "Error\n", 6);
 		return (0);
 	}
+	printls(*stack.a);
 	return (0);
 }
