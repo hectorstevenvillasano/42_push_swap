@@ -7,20 +7,23 @@
 
 typedef struct s_stack
 {
-	int	*a;
-	int	*b;
+	int		*a;
+	int		*b;
+	int		size_a;
+	int		size_b;
 
 }				t_stack;
 
 /** freeit.c **/
-void free_split(char ***split);
+void 	free_split(char ***split);
 /** create_stack.c **/
-int create_stack(int ac, char **av, int **ar);
+int		create_stack(int ac, char **av, t_stack **st);
 int list_len(t_list *ls);
-
 /** solver.c **/
 
-int *init_array(int size);
 
+/** struct.c **/
+int		*init_array(int size);
+t_stack	*initstack(void);
 
 #endif

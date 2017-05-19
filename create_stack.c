@@ -97,7 +97,7 @@ int *moveto_array(t_list *stack, int stack_len)
 	return (a);
 }
 
-int create_stack(int ac, char **av, int **ar)
+int create_stack(int ac, char **av, t_stack **st)
 {
 	t_list *a;
 
@@ -107,6 +107,6 @@ int create_stack(int ac, char **av, int **ar)
 		if (addstackarray(&a, av[ac]))
 			return (1);
 	}
-	*ar = moveto_array(a, list_len(a));
+	(*st)->a = moveto_array(a, list_len(a));
 	return (0);
 }
