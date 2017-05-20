@@ -8,6 +8,7 @@ SRC =	push_swap.c \
 		create_stack.c \
 		solver.c \
 		struct.c \
+		sort.c \
 
 
 all: $(SRC)

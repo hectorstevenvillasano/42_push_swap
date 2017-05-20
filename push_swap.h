@@ -14,6 +14,9 @@ typedef struct s_stack
 
 }				t_stack;
 
+/** push_swap.c **/
+void print_stacks(int *stacka, int *stackb);
+
 /** freeit.c **/
 void 	free_split(char ***split);
 /** create_stack.c **/
@@ -25,5 +28,10 @@ int list_len(t_list *ls);
 /** struct.c **/
 int		*init_array(int size);
 t_stack	*initstack(void);
+
+/** sort.c **/
+void 	sort_large(t_stack *stack);
+
+
 
 #endif

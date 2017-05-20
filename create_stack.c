@@ -107,6 +107,7 @@ int create_stack(int ac, char **av, t_stack **st)
 		if (addstackarray(&a, av[ac]))
 			return (1);
 	}
-	(*st)->a = moveto_array(a, list_len(a));
+	(*st)->size_a = list_len(a);
+	(*st)->a = moveto_array(a, (*st)->size_a);
 	return (0);
 }
