@@ -21,10 +21,6 @@ void find_min_max(t_stack *stack)
 	stack->b_min = min;
 
 }
-int ft_abs(int num)
-{
-	return (num < 0 ? -num : num);
-}
 
 int calc_positions(t_stack *stack, int num)
 {
@@ -43,4 +39,27 @@ int calc_positions(t_stack *stack, int num)
 		i--;
 	}
 	return (next < (stack->size_b + 1) / 2) ? next : next - stack->size_b;
+}
+
+int ft_abs(int num)
+{
+	return (num < 0 ? -num : num);
+}
+
+void ft_lstpush(t_list **head, void const *content, int len)
+{
+	t_list *current;
+
+	if (*head == NULL)
+		*head = ft_lstnew(content, len);
+	else
+	{
+		current = *head;
+		while (current->next != NULL)
+			current = current->next;
+		current->next = (t_list*)malloc(sizeof(t_list));
+		current->next->content = ft_strdup(content);
+		current->next->content_size = len;
+		current->next->next = NULL;
+	}
 }

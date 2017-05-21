@@ -19,7 +19,7 @@ typedef struct s_stack
 	int		t_rots;
 	int		a_rots;
 	int		b_rots;
-	
+
 
 }				t_stack;
 
@@ -37,6 +37,7 @@ int list_len(t_list *ls);
 /** struct.c **/
 int		*init_array(int size);
 t_stack	*initstack(void);
+void 	reset_stack(t_stack *stack);
 
 /** sort.c **/
 void 	sort_large(t_stack *stack);
@@ -52,6 +53,7 @@ int 	ps_reverse_rotate(t_stack *stack, char option);
 void 	find_min_max(t_stack *stack);
 int 	calc_positions(t_stack *stack, int num);
 int		ft_abs(int num);
+void 	ft_lstpush(t_list **head, void const *content, int len);
 
 
 

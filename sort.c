@@ -18,6 +18,57 @@ int		sort_check(t_stack *stack)
 	return (1);
 }
 
+static void rotate_indiv(t_stack *stack)
+{
+	while (stack->a_rots > 0)
+	{
+		apply_operations(stack, "ra");
+		ft_lstpush(&stack->ops, "ra", 2);
+		stack->a_rots--;
+
+	}
+	while (stack->a_rots < 0)
+	{
+		apply_operations(stack, "rra");
+		ft_lstpush(&stack->ops, "rra", 3);
+		stack->a_rots++;
+
+	}
+	while (stack->b_rots > 0)
+	{
+		apply_operations(stack, "rb");
+		ft_lstpush(&stack->ops, "rb", 2);
+		stack->b_rots--;
+
+	}
+	while (stack->b_rots < 0)
+	{
+		apply_operations(stack, "rrb");
+		ft_lstpush(&stack->ops, "rrb", 3);
+		stack->b_rots++;
+	}
+	reset_stack(stack);
+}
+
+static void rotate_both(t_stack *stack)
+{
+	while (stack->a_rots > 0 && stack->b_rots > 0)
+	{
+		apply_operations(stack, "rr");
+		ft_lstpush(&stack->ops, "rr", 2);
+		stack->a_rots--;
+		stack->b_rots--;
+	}
+	while (stack->a_rots < 0 && stack->b_rots < 0)
+	{
+		apply_operations(stack, "rrr");
+		ft_lstpush(&stack->ops, "rrr", 3);
+		stack->a_rots++;
+		stack->b_rots++;
+	}
+	rotate_indiv(stack);
+}
+
 static void calc_rotation(t_stack *stack)
 {
 	int i;
@@ -50,6 +101,7 @@ static void calc_rotation(t_stack *stack)
 	printf("a:%i b:%i flag:%i rots:%i t_rots:%i a_rots:%i b_rots:%i\n\n", a, b, flag, rots, stack->t_rots, stack->a_rots, stack->b_rots);
 }
 
+
 void 	sort_large(t_stack *stack)
 {
 	if (sort_check(stack))
@@ -59,9 +111,12 @@ void 	sort_large(t_stack *stack)
 	}
 	apply_operations(stack, "pb");
 	stack->ops = ft_lstnew("pb", 2);
-//	while (stack->size_a > 0)
-//	{
+	while (stack->size_a > 0)
+	{
 		calc_rotation(stack);
-		//rotate_both(stack);
-//	}
+		rotate_both(stack);
+		apply_operations(stack, "pb");
+		ft_lstpush(&stack->ops, "pb", 2);
+		reset_stack(stack);
+	}
 }
