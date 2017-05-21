@@ -21,6 +21,10 @@ void find_min_max(t_stack *stack)
 	stack->b_min = min;
 
 }
+int ft_abs(int num)
+{
+	return (num < 0 ? -num : num);
+}
 
 int calc_positions(t_stack *stack, int num)
 {

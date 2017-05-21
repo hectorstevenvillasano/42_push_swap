@@ -6,7 +6,6 @@
 #include <stdio.h>
 
 
-#define ft_abs(x) x < 0 ? -x : x
 
 typedef struct s_stack
 {
@@ -17,6 +16,10 @@ typedef struct s_stack
 	int		size_b;
 	int 	b_max;
 	int		b_min;
+	int		t_rots;
+	int		a_rots;
+	int		b_rots;
+	
 
 }				t_stack;
 
@@ -48,6 +51,8 @@ int 	ps_reverse_rotate(t_stack *stack, char option);
 /** help.c **/
 void 	find_min_max(t_stack *stack);
 int 	calc_positions(t_stack *stack, int num);
+int		ft_abs(int num);
+
 
 
 
