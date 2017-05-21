@@ -14,7 +14,7 @@ int		sort_check(t_stack *stack)
 	{
 		if (stack->a[i] > stack->a[i + 1])
 	 		return (0);
-		printf("if %i > %i\n", stack->a[i], stack->a[i + 1]);
+		//printf("if %i > %i\n", stack->a[i], stack->a[i + 1]);
 	}
 	return (1);
 }
@@ -27,5 +27,5 @@ void 	sort_large(t_stack *stack)
 		ft_printf("is sorted\n");
 		return ;
 	}
-
+	apply_operations(stack, "pb");
 }
