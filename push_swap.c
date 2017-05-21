@@ -26,7 +26,7 @@ void print_stacks(int *stacka, int *stackb)
 int main(int ac, char **av)
 {
 	t_stack	*stack;
-	int		*a_copy;
+//	int		*a_copy;
 
 	stack = initstack();
 	if (create_stack(ac, av, &stack)) //| solver(&stack))
@@ -40,10 +40,10 @@ int main(int ac, char **av)
 	ft_putendl("\n");
 
 	stack->b = init_array(stack->size_a);
-	a_copy = stack->a;
+//	a_copy = stack->a;
 	sort_large(stack);
 //	(stack->size_a > 7) ? sort_large(stack) : sort_small(stack);
 
-	print_stacks(a_copy, stack->b);
+	//print_stacks(a_copy, stack->b);
 	return (0);
 }

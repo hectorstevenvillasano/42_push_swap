@@ -5,12 +5,18 @@
 
 #include <stdio.h>
 
+
+#define ft_abs(x) x < 0 ? -x : x
+
 typedef struct s_stack
 {
+	t_list	*ops;
 	int		*a;
 	int		*b;
 	int		size_a;
 	int		size_b;
+	int 	b_max;
+	int		b_min;
 
 }				t_stack;
 
@@ -33,11 +39,17 @@ t_stack	*initstack(void);
 void 	sort_large(t_stack *stack);
 
 /** rulse.c **/
-int 	ps_push(t_stack *stack, char option);
 void 	apply_operations(t_stack *stack, char *input);
+int 	ps_swap(t_stack *stack, char option);
+int 	ps_push(t_stack *stack, char option);
 int 	ps_rotate(t_stack *stack, char option);
 int 	ps_reverse_rotate(t_stack *stack, char option);
-int 	ps_swap(t_stack *stack, char option);
+
+/** help.c **/
+void 	find_min_max(t_stack *stack);
+int 	calc_positions(t_stack *stack, int num);
+
+
 
 
 #endif

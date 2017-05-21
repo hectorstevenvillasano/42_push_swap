@@ -10,6 +10,7 @@ SRC =	push_swap.c \
 		struct.c \
 		sort.c \
 		rules.c \
+		help.c \
 
 
 all: $(SRC)

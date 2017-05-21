@@ -5,18 +5,19 @@ int ps_swap(t_stack *stack, char option)
 {
 	int tmp;
 
-	if ((option == 'a' || option == 'c') && data->size_a > 1)
+	if ((option == 'a' || option == 'c') && stack->size_a > 1)
 	{
 		tmp = stack->a[0];
 		stack->a[0] = stack->a[1];
 		stack->a[1] = tmp;
 	}
-	if ((option == 'b' || option == 'c') && data->size_b > 1)
+	if ((option == 'b' || option == 'c') && stack->size_b > 1)
 	{
 		tmp = stack->b[0];
 		stack->b[0] = stack->a[1];
 		stack->b[1] = tmp;
 	}
+	return (1);
 }
 
 int ps_reverse_rotate(t_stack *stack, char option)
@@ -66,7 +67,7 @@ int ps_rotate(t_stack *stack, char option)
 			stack->b[i] = stack->b[i + 1];
 		stack->b[stack->size_b - 1] = tmp;
 	}
-		return (1);
+	return (1);
 }
 
 int ps_push(t_stack *stack, char option)
@@ -101,32 +102,32 @@ void apply_operations(t_stack *stack, char *input)
 {
 	if (!ft_strcmp(input, "sa"))
 		ps_swap(stack, 'a');
-	if (!ft_swap(input, "sa"))
-		ps_push(stack, 'b');
-	if (!ft_swap(input, "ss"))
+	else if (!ft_strcmp(input, "sb"))
+		ps_swap(stack, 'b');
+	else if (!ft_strcmp(input, "ss"))
 		ps_swap(stack, 'c');
-
-	if (!ft_strcmp(input, "pa"))
+	else if (!ft_strcmp(input, "pa"))
 		ps_push(stack, 'a');
-	if (!ft_strcmp(input, "pa"))
+	else if (!ft_strcmp(input, "pb"))
 		ps_push(stack, 'b');
-	if (!ft_strcmp(input, "pp"))
+	else if (!ft_strcmp(input, "pp"))
 		ps_push(stack, 'c');
-
-	if (!ft_strcmp(input, "ra"))
+	else if (!ft_strcmp(input, "ra"))
 		ps_rotate(stack, 'a');
-	if (!ft_strcmp(input, "ra"))
+	else if (!ft_strcmp(input, "rb"))
 		ps_rotate(stack, 'b');
-	if (!ft_strcmp(input, "rr"))
+	else if (!ft_strcmp(input, "rr"))
 		ps_rotate(stack, 'c');
-
-
-	if (!ft_strcmp(input, "rra"))
+	else if (!ft_strcmp(input, "rra"))
 		ps_reverse_rotate(stack, 'a');
-	if (!ft_strcmp(input, "rra"))
+	else if (!ft_strcmp(input, "rrb"))
 		ps_reverse_rotate(stack, 'b');
-	if (!ft_strcmp(input, "rrr"))
+	else if (!ft_strcmp(input, "rrr"))
 		ps_reverse_rotate(stack, 'c');
+
+
+	ft_printf("operation: %s\n",input);
+	print_stacks(stack->a, stack->b);
 
 }
 /*
