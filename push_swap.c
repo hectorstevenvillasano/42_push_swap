@@ -34,6 +34,11 @@ int main(int ac, char **av)
 		write(2, "Error\n", 6);
 		return (0);
 	}
+
+	ft_putendl("stack start!");
+	print_stacks(stack->a, stack->b);
+	ft_putendl("\n");
+
 	stack->b = init_array(stack->size_a);
 	a_copy = stack->a;
 	sort_large(stack);

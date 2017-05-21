@@ -9,12 +9,13 @@ SRC =	push_swap.c \
 		solver.c \
 		struct.c \
 		sort.c \
+		rules.c \
 
 
 all: $(SRC)
 	gcc -g $(FLAGS) $(SRC) $(LIB) -o $(NAMEPS)
 
-re:fclean all
+re: fclean all
 
 clean:
 
