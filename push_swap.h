@@ -37,5 +37,7 @@ int 	ps_push(t_stack *stack, char option);
 void 	apply_operations(t_stack *stack, char *input);
 int 	ps_rotate(t_stack *stack, char option);
 int 	ps_reverse_rotate(t_stack *stack, char option);
+int 	ps_swap(t_stack *stack, char option);
+
 
 #endif
