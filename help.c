@@ -63,3 +63,8 @@ void ft_lstpush(t_list **head, void const *content, int len)
 		current->next->next = NULL;
 	}
 }
+void applyop_lstpush(t_stack *stack, char *op, int len)
+{
+	apply_operations(stack, op);
+	ft_lstpush(&stack->ops, op, len);
+}

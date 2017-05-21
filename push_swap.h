@@ -56,6 +56,7 @@ int		ft_abs(int num);
 void 	ft_lstpush(t_list **head, void const *content, int len);
 
 
+void applyop_lstpush(t_stack *stack, char *op, int len);
 
 
 

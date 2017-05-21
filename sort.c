@@ -101,6 +101,26 @@ static void calc_rotation(t_stack *stack)
 	printf("a:%i b:%i flag:%i rots:%i t_rots:%i a_rots:%i b_rots:%i\n\n", a, b, flag, rots, stack->t_rots, stack->a_rots, stack->b_rots);
 }
 
+static void rotate_b(t_stack *stack)
+{
+	int rots;
+
+	find_min_max(stack);
+	rots = (stack->b_max < (stack->size_b + 1) / 2) ?
+		stack->b_max : stack->b_max - stack->size_b;
+	while (rots > 0)
+	{
+		apply_operations(stack, "rb");
+		ft_lstpush(&stack->ops, "rb", 2);
+		rots--;
+	}
+	while (rots < 0)
+	{
+		apply_operations(stack, "rrb");
+		ft_lstpush(&stack->ops, "rrb", 2);
+		rots++;
+	}
+}
 
 void 	sort_large(t_stack *stack)
 {
@@ -118,5 +138,11 @@ void 	sort_large(t_stack *stack)
 		apply_operations(stack, "pb");
 		ft_lstpush(&stack->ops, "pb", 2);
 		reset_stack(stack);
+	}
+	rotate_b(stack);
+	while (stack->size_b > 0)
+	{
+		apply_operations(stack, "pa");
+		ft_lstpush(&stack->ops, "pa", 2);
 	}
 }
