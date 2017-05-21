@@ -44,6 +44,7 @@ int main(int ac, char **av)
 	sort_large(stack);
 //	(stack->size_a > 7) ? sort_large(stack) : sort_small(stack);
 
-	//print_stacks(a_copy, stack->b);
+	ft_putendl("final stacks:");
+	print_stacks(stack->a, stack->b);
 	return (0);
 }

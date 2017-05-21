@@ -12,9 +12,9 @@ void find_min_max(t_stack *stack)
 	while (i < stack->size_b)
 	{
 		if (stack->b[i] > stack->b[max])
-		max = i;
+			max = i;
 		if (stack->b[i] < stack->b[min])
-		min = i;
+			min = i;
 		i++;
 	}
 	stack->b_max = max;
@@ -34,7 +34,7 @@ int calc_positions(t_stack *stack, int num)
 	while (i >= 0)
 	{
 		if (stack->b[i] < num && stack->b[i] > stack->b[next])
-		next = i;
+			next = i;
 		i--;
 	}
 		return (next < (stack->size_b + 1) / 2) ?
