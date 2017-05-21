@@ -12,14 +12,13 @@ void find_min_max(t_stack *stack)
 	while (i < stack->size_b)
 	{
 		if (stack->b[i] > stack->b[max])
-			max = i;
+		max = i;
 		if (stack->b[i] < stack->b[min])
-			min = i;
+		min = i;
 		i++;
 	}
 	stack->b_max = max;
 	stack->b_min = min;
-
 }
 
 int calc_positions(t_stack *stack, int num)
@@ -30,15 +29,16 @@ int calc_positions(t_stack *stack, int num)
 	i = stack->size_b - 1;
 	next = stack->b_min;
 	if (num > stack->b[stack->b_max] || num < stack->b[stack->b_min])
-		return (stack->b_max <  (stack->size_b + 1) / 2 ?
-			stack->b_max : stack->b_max - stack->size_b);
-	while ( i >= 0)
+	return (stack->b_max < (stack->size_b + 1) / 2) ? (stack->b_max) :
+	(stack->b_max - stack->size_b);
+	while (i >= 0)
 	{
 		if (stack->b[i] < num && stack->b[i] > stack->b[next])
-			next = i;
+		next = i;
 		i--;
 	}
-	return (next < (stack->size_b + 1) / 2) ? next : next - stack->size_b;
+		return (next < (stack->size_b + 1) / 2) ?
+		 	next : next - stack->size_b;
 }
 
 int ft_abs(int num)
