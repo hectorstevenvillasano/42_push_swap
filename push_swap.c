@@ -42,9 +42,17 @@ int main(int ac, char **av)
 	stack->b = init_array(stack->size_a);
 //	a_copy = stack->a;
 	sort_large(stack);
+	//sort_large(stack);
+
 //	(stack->size_a > 7) ? sort_large(stack) : sort_small(stack);
 
-	ft_putendl("final stacks:");
+	ft_putendl("\nfinal stacks:");
 	print_stacks(stack->a, stack->b);
+	ft_putendl("");
+	while (stack->ops)
+	{
+		ft_putendl(stack->ops->content);
+		stack->ops = stack->ops->next;
+	}
 	return (0);
 }

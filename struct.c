@@ -25,7 +25,9 @@ t_stack *initstack(void)
 {
 	t_stack *stack;
 
+
 	stack = (t_stack*)ft_memalloc(sizeof(t_stack));
+	stack->ops = NULL;
 	stack->a = NULL;
 	stack->b = NULL;
 	stack->size_a = 0;
