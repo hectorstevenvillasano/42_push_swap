@@ -41,10 +41,10 @@ int main(int ac, char **av)
 
 	stack->b = init_array(stack->size_a);
 //	a_copy = stack->a;
-	sort_large(stack);
+	//sort_large(stack);
 	//sort_large(stack);
 
-//	(stack->size_a > 7) ? sort_large(stack) : sort_small(stack);
+	(stack->size_a > 7) ? sort_large(stack) : sort_small(stack);
 
 	ft_putendl("\nfinal stacks:");
 	print_stacks(stack->a, stack->b);

@@ -40,9 +40,12 @@ t_stack	*initstack(void);
 void 	reset_stack(t_stack *stack);
 
 /** sort.c **/
+int		sort_check(t_stack *stack);
 void 	sort_large(t_stack *stack);
+
 /** sort2.c **/
 void 	sort_small(t_stack *stack);
+
 /** rulse.c **/
 void 	apply_operations(t_stack *stack, char *input);
 int 	ps_swap(t_stack *stack, char option);

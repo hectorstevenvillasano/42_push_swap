@@ -9,6 +9,7 @@ SRC =	push_swap.c \
 		solver.c \
 		struct.c \
 		sort.c \
+		sort2.c \
 		rules.c \
 		help.c \
 
