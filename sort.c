@@ -79,7 +79,7 @@ static void calc_rotation(t_stack *stack)
 
 	i = -1;
 	flag = 0;
-	while (++i < stack->size_b)
+	while (++i < stack->size_a)
 	{
 		find_min_max(stack);
 		a = (i < (stack->size_a + 1) / 2) ? (i) : (i - stack->size_a);
