@@ -9,6 +9,7 @@
 
 typedef struct s_stack
 {
+	int		features;
 	t_list	*ops;
 	int		*a;
 	int		*b;

@@ -1,8 +1,8 @@
 #include "push_swap.h"
 
-int *init_array(int size)
+int 		*init_array(int size)
 {
-	int	*ar;
+	int		*ar;
 
 	ar = (int*)malloc(sizeof(int) * size);
 	if (!ar)
@@ -12,7 +12,7 @@ int *init_array(int size)
 }
 
 
-void reset_stack(t_stack *stack)
+void 		reset_stack(t_stack *stack)
 {
 	stack->t_rots = 0;
 	stack->a_rots = 0;
@@ -21,11 +21,12 @@ void reset_stack(t_stack *stack)
 	stack->b_min = 0;
 }
 
-t_stack *initstack(void)
+t_stack 	*initstack(void)
 {
 	t_stack *stack;
 
 	stack = (t_stack*)ft_memalloc(sizeof(t_stack));
+	stack->features = 0;
 	stack->ops = NULL;
 	stack->a = NULL;
 	stack->b = NULL;
