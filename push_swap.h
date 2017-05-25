@@ -36,6 +36,7 @@ int list_len(t_list *ls);
 
 
 /** struct.c **/
+void 	free_stack(t_stack *stack);
 int		*init_array(int size);
 t_stack	*initstack(void);
 void 	reset_stack(t_stack *stack);
@@ -60,8 +61,12 @@ int 	calc_positions(t_stack *stack, int num);
 int		ft_abs(int num);
 void 	ft_lstpush(t_list **head, void const *content, int len);
 
+/** print.c **/
+void 	display_stack(t_stack *stack, int *a_copy);
+void 	ft_lstfree(t_list *head);
+void 	ft_lstprint(t_list *head);
+int 	*ft_intdup(int *array, int size);
 
-void applyop_lstpush(t_stack *stack, char *op, int len);
 
 
 

@@ -11,7 +11,6 @@ int 		*init_array(int size)
 	return (ar);
 }
 
-
 void 		reset_stack(t_stack *stack)
 {
 	stack->t_rots = 0;
@@ -19,6 +18,17 @@ void 		reset_stack(t_stack *stack)
 	stack->b_rots = 0;
 	stack->b_max = 0;
 	stack->b_min = 0;
+}
+
+void 	free_stack(t_stack *stack)
+{
+	free(stack->a);
+	stack->a = NULL;
+	free(stack->b);
+	stack->b = NULL;
+	ft_lstfree(stack->ops);
+	free(stack);
+
 }
 
 t_stack 	*initstack(void)

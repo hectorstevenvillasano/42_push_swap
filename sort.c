@@ -124,10 +124,7 @@ static void rotate_b(t_stack *stack)
 void 	sort_large(t_stack *stack)
 {
 	if (sort_check(stack))
-	{
-		ft_printf("is sorted\n");
 		return ;
-	}
 	apply_operations(stack, "pb");
 	stack->ops = ft_lstnew("pb", 2);
 	while (stack->size_a > 0)

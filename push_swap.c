@@ -14,7 +14,6 @@ void print_stack(int *stack)
 
 void print_stacks(int *stacka, int *stackb)
 {
-
 	ft_putstr("a|");
 	(stacka != '\0') ? print_stack(stacka) : ft_putstr("\n");
 	ft_putstr("\n");
@@ -29,7 +28,7 @@ static int set_features(t_stack *stack, char **av)
 		stack->features = 1;
 	else if (!ft_strcmp(av[1], "-c"))
 		stack->features = 2;
-	else if (!ft_strcmp(av[2], "-cv" || !ft_strcmp(av[2], "-vc"))
+	else if (!ft_strcmp(av[2], "-cv") || !ft_strcmp(av[2], "-vc"))
 		stack->features = 3;
 	else
 		return (0);
@@ -49,26 +48,14 @@ int main(int ac, char **av)
 		write(2, "Error\n", 6);
 		return (0);
 	}
-
-	// ft_putendl("stack start!");
-	// print_stacks(stack->a, stack->b);
-	// ft_putendl("\n");
-	a_copy = stack->a;
 	stack->b = init_array(stack->size_a);
+	a_copy = ft_intdup(stack->a, stack->size_a);
 	(stack->size_a > 7) ? sort_large(stack) : sort_small(stack);
+	if (stack->features == 1 || stack->features == 3)
+	 	display_stack(stack, a_copy);
+	else
+		ft_lstprint(stack->ops);
 
-	// if (stack->features == 1 || stack->features == 3)
-	// 	display_stack(stack, a_copy);
-
-
-
-	// ft_putendl("\nfinal stacks:");
-	// print_stacks(stack->a, stack->b);
-	// ft_putendl("");
-	// while (stack->ops)
-	// {
-	// 	ft_putendl(stack->ops->content);
-	// 	stack->ops = stack->ops->next;
-	// }
+	free_stack(stack);
 	return (0);
 }

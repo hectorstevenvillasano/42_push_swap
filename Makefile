@@ -12,7 +12,7 @@ SRC =	push_swap.c \
 		sort2.c \
 		rules.c \
 		help.c \
-
+		print.c \
 
 all: $(SRC)
 	gcc -g $(FLAGS) $(SRC) $(LIB) -o $(NAMEPS)
