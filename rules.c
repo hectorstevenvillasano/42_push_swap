@@ -125,8 +125,8 @@ void apply_operations(t_stack *stack, char *input)
 		ps_reverse_rotate(stack, 'c');
 
 
-	// ft_printf("\n\noperation: %s\n",input);
-	// print_stacks(stack->a, stack->b);
+	printf("\n\noperation: %s\n",input);
+	print_stacks(stack->a, stack->b);
 
 
 }

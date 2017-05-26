@@ -1,7 +1,7 @@
 
-LIB = ft_printf/libftprintf.a
-INC = inc/
+LIB = libft/libft.a
 NAMEPS = push_swap
+NAMEC  = checker
 FLAGS = -Wall -Wextra -Werror
 
 SRC =	push_swap.c \
@@ -15,12 +15,15 @@ SRC =	push_swap.c \
 		help.c \
 		print.c \
 
-all: $(SRC)
-	gcc -g $(FLAGS) -c $(addprefix ps/, $(SRC)) -I$(INC) $(LIB) -o $(NAMEPS)
+all: $(NAMEPS)
+
+$(NAMEPS): $(SRC)
+	gcc -g $(FLAGS) $(SRC) $(LIB) -o $(NAMEPS)
 
 re: fclean all
-
+	#make re -C libft/
 clean:
-	make clean -C ft_printf/
+	#make clean -C libft/
 fclean: clean
-		rm $(NAMEPS)
+	#make fclean -C libft/
+	rm $(NAMEPS)

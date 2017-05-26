@@ -88,6 +88,12 @@ void 	sort_small(t_stack *stack)
 {
 	if (sort_check(stack))
 		return ;
+	if (stack->size_a == 2)
+	{
+		apply_operations(stack, "ra");
+		ft_lstpush(&stack->ops, "ra", 2);
+		return ;
+	}
 	if (rot_possible(stack))
 	 	rotate_a(stack);
 	else

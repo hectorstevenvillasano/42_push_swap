@@ -1,7 +1,7 @@
 #ifndef PUSH_SWAP_H
 #define PUSH_SWAP_H
 
-#include "ft_printf/inc/ft_printf.h"
+#include "libft/libft.h"
 
 #include <stdio.h>
 
