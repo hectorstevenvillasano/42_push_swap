@@ -4,11 +4,14 @@
 
 void print_stack(int *stack)
 {
-	while(*stack)
+	int i;
+
+	i = 0;
+	while(stack[i])
 	{
-		ft_putstr(ft_itoa(*stack));
+		ft_putstr(ft_itoa(stack[i]));
 		ft_putstr(" ");
-		stack++;
+		i++;
 	}
 	ft_putchar('\n');
 }
@@ -50,11 +53,21 @@ int main(int ac, char **av)
 		return (0);
 	}
 	stack->b = init_array(stack->size_a);
+
+	ft_putstr("STACKS TART\n");
+	print_stacks(stack->a, stack->b);
+
 	//a_copy = ft_intdup(stack->a, stack->size_a);
 	(stack->size_a > 7) ? sort_large(stack) : sort_small(stack);
 //	if (stack->features == 1 || stack->features == 3)
 //	 	display_stack(stack, a_copy);
 	//else
+
+
+
+	ft_putstr("\n");
+	ft_putstr("STACKS END\n");
+	print_stacks(stack->a, stack->b);
 	ft_putstr("\n");
 	ft_lstprint(stack->ops);
 	free_stack(stack);

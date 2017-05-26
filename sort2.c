@@ -84,6 +84,59 @@ static void push_min(t_stack *stack)
 	ft_lstpush(&stack->ops, "pb", 2);
 }
 
+
+void app_lst(t_stack *stack, char *op)
+{
+
+	apply_operations(stack, op);
+	ft_lstpush(&stack->ops, op, ft_strlen(op));
+}
+void sort_three(t_stack *stack)
+{
+
+	if (stack->a[0] > stack->a[2])
+	{
+		app_lst(stack, "ra");
+		// apply_operations(stack, "ra");
+		// ft_lstpush(&stack->ops, "ra", 2);
+	}
+	if (stack->a[0] > stack->a[1])
+	{
+		// apply_operations(stack, "sa");
+		// ft_lstpush(&stack->ops, "sa", 2);
+	}
+
+
+	// if (stack->a[0] < stack->a[1] && stack->a[0] < stack->a[2])
+	// 	if (stack->a[1] > stack->a[2])
+	// 	{
+	// 		apply_operations(stack, "rra");
+	// 		ft_lstpush(&stack->ops, "rra", 3);
+	// 		apply_operations(stack, "sa");
+	// 		ft_lstpush(&stack->ops, "sa", 2);
+	// 	}
+	// if (stack->a[1] < stack->a[0] && stack->a[1] < stack->a[2])
+	// {
+	// 	if (stack->a[0] > stack->a[2])
+	// 	{
+	// 		// apply_operations(stack, "rra");
+	// 		// ft_lstpush(&stack->ops, "rra", 3);
+	// 		apply_operations(stack, "sa");
+	// 		ft_lstpush(&stack->ops, "sa", 2);
+	// 	}
+	// }
+	// if (stack->a[2] < stack->a[0] && stack->a[2] < stack->a[2])
+	// {
+	// 	if (stack->a[0] > stack->a[1])
+	// 	{
+	// 		// apply_operations(stack, "rra");
+	// 		// ft_lstpush(&stack->ops, "rra", 3);
+	// 		apply_operations(stack, "sa");
+	// 		ft_lstpush(&stack->ops, "sa", 2);
+	// 	}
+	// }
+}
+
 void 	sort_small(t_stack *stack)
 {
 	if (sort_check(stack))
@@ -92,6 +145,11 @@ void 	sort_small(t_stack *stack)
 	{
 		apply_operations(stack, "ra");
 		ft_lstpush(&stack->ops, "ra", 2);
+		return ;
+	}
+	if (stack->size_a == 3)
+	{
+		sort_three(stack);
 		return ;
 	}
 	if (rot_possible(stack))

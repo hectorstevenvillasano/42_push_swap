@@ -18,6 +18,7 @@ SRC =	push_swap.c \
 all: $(NAMEPS)
 
 $(NAMEPS): $(SRC)
+	#make -C libft/
 	gcc -g $(FLAGS) $(SRC) $(LIB) -o $(NAMEPS)
 
 re: fclean all
