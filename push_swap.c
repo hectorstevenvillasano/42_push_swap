@@ -65,9 +65,9 @@ int main(int ac, char **av)
 
 
 
-	ft_putstr("\n");
-	ft_putstr("STACKS END\n");
-	print_stacks(stack->a, stack->b);
+	// ft_putstr("\n");
+	// ft_putstr("STACKS END\n");
+	// print_stacks(stack->a, stack->b);
 	ft_putstr("\n");
 	ft_lstprint(stack->ops);
 	free_stack(stack);
