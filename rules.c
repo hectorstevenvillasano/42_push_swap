@@ -124,11 +124,11 @@ void apply_operations(t_stack *stack, char *input)
 	else if (!ft_strcmp(input, "rrr"))
 		ps_reverse_rotate(stack, 'c');
 
-
-	printf("\n\noperation: %s\n",input);
-	print_stacks(stack);
-
-
+	if (stack->features == 1)
+	{
+		printf("\n\noperation: %s\n",input);
+		print_stacks(stack);
+	}
 }
 /*
 up is right

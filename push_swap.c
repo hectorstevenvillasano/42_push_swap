@@ -37,19 +37,19 @@ void print_stacks(t_stack *stack)
 	(stack->b[0] != '\0') ? print_stack(stack, 1) : ft_putstr("\n");
 
 }
-//
-// static int set_features(t_stack *stack, char **av)
-// {
-// 	if (!ft_strcmp(av[1], "-v"))
-// 		stack->features = 1;
-// 	else if (!ft_strcmp(av[1], "-c"))
-// 		stack->features = 2;
-// 	else if (!ft_strcmp(av[2], "-cv") || !ft_strcmp(av[2], "-vc"))
-// 		stack->features = 3;
-// 	else
-// 		return (0);
-// 	return (1);
-// }
+
+static int set_features(t_stack *stack, char **av)
+{
+	if (!ft_strcmp(av[1], "-v"))
+		stack->features = 1;
+	else if (!ft_strcmp(av[1], "-c"))
+		stack->features = 2;
+	else if (!ft_strcmp(av[2], "-cv") || !ft_strcmp(av[2], "-vc"))
+		stack->features = 3;
+	else
+		return (0);
+	return (1);
+}
 
 int main(int ac, char **av)
 {
@@ -57,8 +57,8 @@ int main(int ac, char **av)
 	//int		*a_copy;
 
 	stack = initstack();
-	//if (set_features(stack, av) && ac--)
-	//	av++;
+	if (set_features(stack, av) && ac--)
+		av++;
 	if (create_stack(ac, av, &stack)) //| solver(&stack))
 	{
 		write(2, "Error\n", 6);
