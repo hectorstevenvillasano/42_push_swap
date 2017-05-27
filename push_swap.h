@@ -1,11 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hvillasa <hvillasa@42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/05/27 01:25:39 by hvillasa          #+#    #+#             */
+/*   Updated: 2017/05/27 01:25:46 by hvillasa         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
 #define PUSH_SWAP_H
 
 #include "libft/libft.h"
-
-#include <stdio.h>
-
-
 
 typedef struct s_stack
 {
@@ -24,7 +32,6 @@ typedef struct s_stack
 
 }				t_stack;
 
-/** push_swap.c **/
 
 /** freeit.c **/
 void 	free_split(char ***split);
