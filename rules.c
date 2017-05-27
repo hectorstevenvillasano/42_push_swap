@@ -123,10 +123,11 @@ void apply_operations(t_stack *stack, char *input)
 		ps_reverse_rotate(stack, 'b');
 	else if (!ft_strcmp(input, "rrr"))
 		ps_reverse_rotate(stack, 'c');
-
 	if (stack->features == 1)
 	{
-		printf("\n\noperation: %s\n",input);
+		ft_putstr("\n\noperation: ");
+		ft_putstr(input);
+		ft_putstr("\n");
 		print_stacks(stack);
 	}
 }

@@ -93,7 +93,6 @@ int *moveto_array(t_list *stack, int stack_len)
 		i++;
 		stack = stack->next;
 	}
-
 	return (a);
 }
 
@@ -109,5 +108,6 @@ int create_stack(int ac, char **av, t_stack **st)
 	}
 	(*st)->size_a = list_len(a);
 	(*st)->a = moveto_array(a, (*st)->size_a);
+	ft_lstfree(a);
 	return (0);
 }

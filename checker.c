@@ -26,10 +26,10 @@ int main(int ac, char **av)
 		ft_putchar('\n');
 		return (0);
 	}
-	if (av[1][0] == '-')
+	if (av[1][0] == '-' && (av[1][1] == 'v' || av[1][1] == 'c'))
 		if (set_features(stack, av) && ac--)
 			av++;
-	if (create_stack(ac, av, &stack)) //| solver(&stack))
+	if (create_stack(ac, av, &stack))
 	{
 		write(2, "Error\n", 6);
 		return (0);

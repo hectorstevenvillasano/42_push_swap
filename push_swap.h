@@ -25,13 +25,12 @@ typedef struct s_stack
 }				t_stack;
 
 /** push_swap.c **/
-void print_stacks(t_stack *stack);
 
 /** freeit.c **/
 void 	free_split(char ***split);
 /** create_stack.c **/
 int		create_stack(int ac, char **av, t_stack **st);
-int list_len(t_list *ls);
+int 	list_len(t_list *ls);
 /** solver.c **/
 
 
@@ -66,6 +65,7 @@ void 	display_stack(t_stack *stack, int *a_copy);
 void 	ft_lstfree(t_list *head);
 void 	ft_lstprint(t_list *head);
 int 	*ft_intdup(int *array, int size);
+void 	print_stacks(t_stack *stack);
 
 
 
