@@ -2,41 +2,6 @@
 
 
 
-void print_stack(t_stack *stack, int ab)
-{
-	int i;
-
-	i = 0;
-	if (ab == 0)
-	{
-		while(i < stack->size_a)
-		{
-			ft_putstr(ft_itoa(stack->a[i]));
-			ft_putstr(" ");
-			i++;
-		}
-	}
-	if (ab == 1)
-	{
-		while(i < stack->size_b)
-		{
-			ft_putstr(ft_itoa(stack->b[i]));
-			ft_putstr(" ");
-			i++;
-		}
-	}
-	ft_putchar('\n');
-}
-
-void print_stacks(t_stack *stack)
-{
-	ft_putstr("a|");
-	(stack->a[0] != '\0') ? print_stack(stack, 0) : ft_putstr("\n");
-	ft_putstr("\n");
-	ft_putstr("b|");
-	(stack->b[0] != '\0') ? print_stack(stack, 1) : ft_putstr("\n");
-
-}
 
 static int set_features(t_stack *stack, char **av)
 {
@@ -57,8 +22,14 @@ int main(int ac, char **av)
 	//int		*a_copy;
 
 	stack = initstack();
-	if (set_features(stack, av) && ac--)
-		av++;
+	if (ac == 1)
+	{
+		ft_putchar('\n');
+		return (0);
+	}
+	if (av[1][0] == '-')
+		if (set_features(stack, av) && ac--)
+			av++;
 	if (create_stack(ac, av, &stack)) //| solver(&stack))
 	{
 		write(2, "Error\n", 6);

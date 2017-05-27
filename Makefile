@@ -4,27 +4,41 @@ NAMEPS = push_swap
 NAMEC  = checker
 FLAGS = -Wall -Wextra -Werror
 
-SRC =	push_swap.c \
-		freeit.c \
-		create_stack.c \
-		solver.c \
-		struct.c \
-		sort.c \
-		sort2.c \
-		rules.c \
-		help.c \
-		print.c \
+PS_SRC	=	push_swap.c \
+			freeit.c \
+			create_stack.c \
+			struct.c \
+			sort.c \
+			sort2.c \
+			rules.c \
+			help.c \
+			print.c \
 
-all: $(NAMEPS)
+C_SRC =		checker.c \
+			freeit.c \
+			create_stack.c \
+			struct.c \
+			sort.c \
+			sort2.c \
+			rules.c \
+			help.c \
+			print.c \
 
-$(NAMEPS): $(SRC)
+all: $(NAMEPS) $(NAMEC)
+
+$(NAMEPS): $(PS_SRC)
 	#make -C libft/
-	gcc -g $(FLAGS) $(SRC) $(LIB) -o $(NAMEPS)
+	gcc -g $(FLAGS) $(PS_SRC) $(LIB) -o $(NAMEPS)
+
+$(NAMEC): $(C_SRC)
+	#make -C libft/
+	gcc -g $(FLAGS) $(C_SRC) $(LIB) -o $(NAMEC)
 
 re: fclean all
 	#make re -C libft/
 clean:
-	#make clean -C libft/
+	make clean -C libft/
 fclean: clean
 	#make fclean -C libft/
 	rm $(NAMEPS)
+	rm $(NAMEC)
