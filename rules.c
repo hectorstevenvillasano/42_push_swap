@@ -126,7 +126,7 @@ void apply_operations(t_stack *stack, char *input)
 
 
 	printf("\n\noperation: %s\n",input);
-	print_stacks(stack->a, stack->b);
+	print_stacks(stack);
 
 
 }
@@ -140,7 +140,7 @@ down is right
 	ss: sa and sb at the same time
 
 	pa: push a - take the first element on top of b and put it on top of a.
-				 do nothing if a is empty;
+				 do nothing if b is empty;
 	pb: push b - take the first element on top of a and put it on top of b.
 				 do nothing if a is empty;
 

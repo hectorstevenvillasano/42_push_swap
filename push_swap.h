@@ -25,7 +25,7 @@ typedef struct s_stack
 }				t_stack;
 
 /** push_swap.c **/
-void print_stacks(int *stacka, int *stackb);
+void print_stacks(t_stack *stack);
 
 /** freeit.c **/
 void 	free_split(char ***split);
