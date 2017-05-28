@@ -18,7 +18,7 @@ static int	set_features(t_stack *stack, char **av)
 		stack->features = 1;
 	else if (!ft_strcmp(av[1], "-c"))
 		stack->features = 2;
-	else if (!ft_strcmp(av[2], "-cv") || !ft_strcmp(av[2], "-vc"))
+	else if (!ft_strcmp(av[1], "-cv") || !ft_strcmp(av[1], "-vc"))
 		stack->features = 3;
 	else
 		return (0);
@@ -45,6 +45,9 @@ int			main(int ac, char **av)
 	}
 	stack->b = init_array(stack->size_a);
 	(stack->size_a > 7) ? sort_large(stack) : sort_small(stack);
+
+	if (stack->features == 1 || stack->features == 3)
+		ft_putchar('\n');
 	ft_lstprint(stack->ops);
 	free_stack(stack);
 	return (0);

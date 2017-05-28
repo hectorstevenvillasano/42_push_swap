@@ -18,7 +18,7 @@ static int	set_features(t_stack *stack, char **av)
 		stack->features = 1;
 	else if (!ft_strcmp(av[1], "-c"))
 		stack->features = 2;
-	else if (!ft_strcmp(av[2], "-cv") || !ft_strcmp(av[2], "-vc"))
+	else if (!ft_strcmp(av[1], "-cv") || !ft_strcmp(av[1], "-vc"))
 		stack->features = 3;
 	else
 		return (0);

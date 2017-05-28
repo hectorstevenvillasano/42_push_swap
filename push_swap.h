@@ -6,7 +6,7 @@
 /*   By: hvillasa <hvillasa@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/27 01:25:39 by hvillasa          #+#    #+#             */
-/*   Updated: 2017/05/27 18:35:28 by hvillasa         ###   ########.fr       */
+/*   Updated: 2017/05/28 13:51:35 by hvillasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 # define PUSH_SWAP_H
 
 # include "libft/libft.h"
+
+#define RED		"\x1b[31m"
+#define GREEN	"\x1b[32m"
+#define RESET	"\x1b[0m"
 
 typedef struct	s_stack
 {

@@ -28,6 +28,7 @@ void		print_stack(t_stack *stack, int ab)
 	}
 	if (ab == 1)
 	{
+		i = 0;
 		while (i < stack->size_b)
 		{
 			ft_putstr(ft_itoa(stack->b[i]));
@@ -40,11 +41,11 @@ void		print_stack(t_stack *stack, int ab)
 
 void		print_stacks(t_stack *stack)
 {
-	ft_putstr("a|");
-	(stack->a[0] != '\0') ? print_stack(stack, 0) : ft_putstr("\n");
+	stack->features == 3 ? ft_putstr(GREEN"a|"RESET) :ft_putstr("a|");
+	print_stack(stack, 0);
 	ft_putstr("\n");
-	ft_putstr("b|");
-	(stack->b[0] != '\0') ? print_stack(stack, 1) : ft_putstr("\n");
+	stack->features == 3 ? ft_putstr(GREEN"b|"RESET) :ft_putstr("b|");
+	print_stack(stack, 1);
 }
 
 int			*ft_intdup(int *array, int size)

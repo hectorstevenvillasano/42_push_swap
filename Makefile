@@ -42,14 +42,17 @@ $(NAMEPS): $(PS_SRC)
 	gcc $(FLAGS) $(PS_SRC) $(LIB) -o $(NAMEPS)
 
 $(NAMEC): $(C_SRC)
-	@make -C libft/
 	gcc $(FLAGS) $(C_SRC) $(LIB) -o $(NAMEC)
 
 re: fclean all
 	@make re -C libft/
+
 clean:
 	@make clean -C libft/
+
 fclean: clean
 	@make fclean -C libft/
 	rm $(NAMEPS)
 	rm $(NAMEC)
+
+.Phony: all re clean fclean $(NAMEC) $(NAMEPS)

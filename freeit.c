@@ -57,7 +57,7 @@ void		free_split(char ***split)
 
 void		prints(t_stack *stack, char *input)
 {
-	if (stack->features == 1)
+	if (stack->features == 1 || stack->features == 3)
 	{
 		ft_putstr("\n\noperation: ");
 		ft_putstr(input);
