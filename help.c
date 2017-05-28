@@ -60,9 +60,15 @@ int		ft_abs(int num)
 void	ft_lstpush(t_list **head, void const *content, int len)
 {
 	t_list *current;
+	char	*tmp;
 
+	tmp = NULL;
 	if (*head == NULL)
-		*head = ft_lstnew(ft_strdup(content), len);
+	{
+		tmp = ft_strdup(content);
+		*head = ft_lstnew(tmp, len);
+		free(tmp);
+	}
 	else
 	{
 		current = *head;

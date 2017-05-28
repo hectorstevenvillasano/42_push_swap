@@ -99,10 +99,12 @@ static void push_min(t_stack *stack)
 
 void op_lst(t_stack *stack, char *op)
 {
+	char *tmp;
 
+	tmp = ft_strdup(op);
 	apply_operations(stack, op);
-	ft_lstpush(&stack->ops, ft_strdup(op), ft_strlen(op));
-
+	ft_lstpush(&stack->ops, tmp, ft_strlen(op));
+	free(tmp);
 }
 
 void sort_three(t_stack *stack)
