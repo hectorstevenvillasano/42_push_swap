@@ -62,7 +62,7 @@ void	ft_lstpush(t_list **head, void const *content, int len)
 	t_list *current;
 
 	if (*head == NULL)
-		*head = ft_lstnew(content, len);
+		*head = ft_lstnew(ft_strdup(content), len);
 	else
 	{
 		current = *head;

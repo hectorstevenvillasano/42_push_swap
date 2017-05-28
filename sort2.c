@@ -101,7 +101,7 @@ void op_lst(t_stack *stack, char *op)
 {
 
 	apply_operations(stack, op);
-	ft_lstpush(&stack->ops, op, ft_strlen(op));
+	ft_lstpush(&stack->ops, ft_strdup(op), ft_strlen(op));
 
 }
 
@@ -116,7 +116,6 @@ void sort_three(t_stack *stack)
 		op_lst(stack, "sa");
 
 	}
-
 	if (stack->a[0] > stack->a[1])
 	{
 		op_lst(stack, "sa");

@@ -66,7 +66,8 @@ void		ft_lstprint(t_list *head)
 {
 	while (head)
 	{
-		ft_putendl(head->content);
+		ft_putstr(head->content);
+		ft_putstr("\n");
 		head = head->next;
 	}
 }
