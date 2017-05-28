@@ -6,7 +6,7 @@
 /*   By: hvillasa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/31 10:15:41 by hvillasa          #+#    #+#             */
-/*   Updated: 2017/03/16 18:29:02 by hvillasa         ###   ########.fr       */
+/*   Updated: 2017/05/27 23:36:50 by hvillasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ intmax_t		ft_intmax_tlen(intmax_t n);
 int				ft_pow(int nb, int pow);
 char			*ft_itoa_base(uintmax_t nbr, int base);
 char			*ft_uintmax_ttoa(uintmax_t n);
-int 			ft_wctomb(char *mb, wchar_t wc);
+int				ft_wctomb(char *mb, wchar_t wc);
 char			*ft_strtouper(char *toup);
 
 #endif

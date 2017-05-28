@@ -6,7 +6,7 @@
 #    By: hvillasa <hvillasa@42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/05/27 01:24:47 by hvillasa          #+#    #+#              #
-#    Updated: 2017/05/27 01:24:50 by hvillasa         ###   ########.fr        #
+#    Updated: 2017/05/27 23:51:18 by hvillasa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,18 +38,18 @@ C_SRC =		checker.c \
 all: $(NAMEPS) $(NAMEC)
 
 $(NAMEPS): $(PS_SRC)
-	#make -C libft/
-	gcc -g $(FLAGS) $(PS_SRC) $(LIB) -o $(NAMEPS)
+	@make -C libft/
+	gcc $(FLAGS) $(PS_SRC) $(LIB) -o $(NAMEPS)
 
 $(NAMEC): $(C_SRC)
-	#make -C libft/
-	gcc -g $(FLAGS) $(C_SRC) $(LIB) -o $(NAMEC)
+	@make -C libft/
+	gcc $(FLAGS) $(C_SRC) $(LIB) -o $(NAMEC)
 
 re: fclean all
-	#make re -C libft/
+	@make re -C libft/
 clean:
-	make clean -C libft/
+	@make clean -C libft/
 fclean: clean
-	#make fclean -C libft/
+	@make fclean -C libft/
 	rm $(NAMEPS)
 	rm $(NAMEC)

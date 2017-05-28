@@ -6,15 +6,15 @@
 /*   By: hvillasa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/01 12:48:58 by hvillasa          #+#    #+#             */
-/*   Updated: 2017/03/16 18:29:41 by hvillasa         ###   ########.fr       */
+/*   Updated: 2017/05/27 23:39:01 by hvillasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		get_len(uintmax_t n)
+static int	get_len(uintmax_t n)
 {
-	intmax_t	len;
+	int		len;
 
 	len = 0;
 	while (n != 0)
