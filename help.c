@@ -6,13 +6,13 @@
 /*   By: hvillasa <hvillasa@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/27 01:24:38 by hvillasa          #+#    #+#             */
-/*   Updated: 2017/05/27 16:24:10 by hvillasa         ###   ########.fr       */
+/*   Updated: 2017/05/27 23:14:59 by hvillasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	find_min_max(t_stack *stack)
+void		find_min_max(t_stack *stack)
 {
 	int	i;
 	int	min;
@@ -33,7 +33,7 @@ void	find_min_max(t_stack *stack)
 	stack->b_min = min;
 }
 
-int		calc_positions(t_stack *stack, int num)
+int			calc_positions(t_stack *stack, int num)
 {
 	int	i;
 	int	next;
@@ -52,14 +52,14 @@ int		calc_positions(t_stack *stack, int num)
 	return (next < (stack->size_b + 1) / 2) ? next : next - stack->size_b;
 }
 
-int		ft_abs(int num)
+int			ft_abs(int num)
 {
 	return (num < 0 ? -num : num);
 }
 
-void	ft_lstpush(t_list **head, void const *content, int len)
+void		ft_lstpush(t_list **head, void const *content, int len)
 {
-	t_list *current;
+	t_list	*current;
 	char	*tmp;
 
 	tmp = NULL;
@@ -81,7 +81,7 @@ void	ft_lstpush(t_list **head, void const *content, int len)
 	}
 }
 
-void	applyop_lstpush(t_stack *stack, char *op, int len)
+void		applyop_lstpush(t_stack *stack, char *op, int len)
 {
 	apply_operations(stack, op);
 	ft_lstpush(&stack->ops, op, len);

@@ -6,7 +6,7 @@
 /*   By: hvillasa <hvillasa@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/27 01:25:57 by hvillasa          #+#    #+#             */
-/*   Updated: 2017/05/27 18:29:05 by hvillasa         ###   ########.fr       */
+/*   Updated: 2017/05/27 23:12:00 by hvillasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,8 +105,6 @@ int		ps_reverse_rotate(t_stack *stack, char option)
 	}
 	return (1);
 }
-
-
 
 void	apply_operations(t_stack *stack, char *input)
 {

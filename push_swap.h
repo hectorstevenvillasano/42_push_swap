@@ -34,6 +34,9 @@ typedef struct	s_stack
 */
 void			free_split(char ***split);
 void			prints(t_stack *stack, char *input);
+void			sort_three(t_stack *stack);
+void			op_lst(t_stack *stack, char *op);
+
 /*
 **	create_stack.c
 */
@@ -52,6 +55,8 @@ void			reset_stack(t_stack *stack);
 */
 int				sort_check(t_stack *stack);
 void			sort_large(t_stack *stack);
+void			calc_rotation(t_stack *stack);
+
 /*
 ** sort2.c
 */

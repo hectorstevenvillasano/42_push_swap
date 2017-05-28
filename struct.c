@@ -6,7 +6,7 @@
 /*   By: hvillasa <hvillasa@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/27 01:27:34 by hvillasa          #+#    #+#             */
-/*   Updated: 2017/05/27 01:27:36 by hvillasa         ###   ########.fr       */
+/*   Updated: 2017/05/27 22:44:20 by hvillasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ int		*moveto_array(t_list *stack, int stack_len)
 	return (a);
 }
 
-int 		*init_array(int size)
+int		*init_array(int size)
 {
-	int		*ar;
+	int	*ar;
 
 	ar = (int*)malloc(sizeof(int) * size);
 	if (!ar)
@@ -39,7 +39,7 @@ int 		*init_array(int size)
 	return (ar);
 }
 
-void 		reset_stack(t_stack *stack)
+void	reset_stack(t_stack *stack)
 {
 	stack->t_rots = 0;
 	stack->a_rots = 0;
@@ -48,7 +48,7 @@ void 		reset_stack(t_stack *stack)
 	stack->b_min = 0;
 }
 
-void 	free_stack(t_stack *stack)
+void	free_stack(t_stack *stack)
 {
 	free(stack->a);
 	stack->a = NULL;
@@ -56,12 +56,11 @@ void 	free_stack(t_stack *stack)
 	stack->b = NULL;
 	ft_lstfree(stack->ops);
 	free(stack);
-
 }
 
-t_stack 	*initstack(void)
+t_stack	*initstack(void)
 {
-	t_stack *stack;
+	t_stack	*stack;
 
 	stack = (t_stack*)ft_memalloc(sizeof(t_stack));
 	stack->features = 0;
@@ -75,6 +74,5 @@ t_stack 	*initstack(void)
 	stack->t_rots = 0;
 	stack->a_rots = 0;
 	stack->b_rots = 0;
-
 	return (stack);
 }

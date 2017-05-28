@@ -6,16 +6,16 @@
 /*   By: hvillasa <hvillasa@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/27 01:26:29 by hvillasa          #+#    #+#             */
-/*   Updated: 2017/05/27 01:27:09 by hvillasa         ###   ########.fr       */
+/*   Updated: 2017/05/27 22:58:32 by hvillasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int 	rot_possible(t_stack *stack)
+static int	rot_possible(t_stack *stack)
 {
-	int i;
-	int ret;
+	int		i;
+	int		ret;
 
 	i = -1;
 	ret = 0;
@@ -28,10 +28,10 @@ static int 	rot_possible(t_stack *stack)
 	return (ret);
 }
 
-static int calc_pivot(t_stack *stack)
+static int	calc_pivot(t_stack *stack)
 {
-	int i;
-	int pivot;
+	int		i;
+	int		pivot;
 
 	i = 0;
 	pivot = -1;
@@ -45,9 +45,9 @@ static int calc_pivot(t_stack *stack)
 	return (pivot);
 }
 
-static void rotate_a(t_stack *stack)
+static void	rotate_a(t_stack *stack)
 {
-	int pivot;
+	int		pivot;
 
 	pivot = calc_pivot(stack);
 	if (pivot < (stack->size_a + 1) / 2 && pivot != -1)
@@ -69,10 +69,10 @@ static void rotate_a(t_stack *stack)
 	}
 }
 
-static void push_min(t_stack *stack)
+static void	push_min(t_stack *stack)
 {
-	int i;
-	int min;
+	int		i;
+	int		min;
 
 	i = -1;
 	min = 0;
@@ -96,45 +96,7 @@ static void push_min(t_stack *stack)
 	ft_lstpush(&stack->ops, "pb", 2);
 }
 
-
-void op_lst(t_stack *stack, char *op)
-{
-	char *tmp;
-
-	tmp = ft_strdup(op);
-	apply_operations(stack, op);
-	ft_lstpush(&stack->ops, tmp, ft_strlen(op));
-	free(tmp);
-}
-
-void sort_three(t_stack *stack)
-{
-
-	if (stack->a[0] > stack->a[2])
-	{
-		op_lst(stack, "ra");
-		if (sort_check(stack))
-			return ;
-		op_lst(stack, "sa");
-
-	}
-	if (stack->a[0] > stack->a[1])
-	{
-		op_lst(stack, "sa");
-		if (sort_check(stack))
-			return ;
-	}
-	if (stack->a[1] > stack->a[2])
-	{
-		op_lst(stack, "rra");
-		if (sort_check(stack))
-			return ;
-		op_lst(stack, "sa");
-	}
-
-}
-
-void 	sort_small(t_stack *stack)
+void		sort_small(t_stack *stack)
 {
 	if (sort_check(stack))
 		return ;
@@ -150,7 +112,7 @@ void 	sort_small(t_stack *stack)
 		return ;
 	}
 	if (rot_possible(stack))
-	 	rotate_a(stack);
+		rotate_a(stack);
 	else
 	{
 		while (stack->size_a > 1)
