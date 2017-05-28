@@ -6,13 +6,13 @@
 /*   By: hvillasa <hvillasa@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/27 01:23:58 by hvillasa          #+#    #+#             */
-/*   Updated: 2017/05/27 01:24:02 by hvillasa         ###   ########.fr       */
+/*   Updated: 2017/05/27 16:19:08 by hvillasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int check_dups(t_list *stack, int *value)
+static int	check_dups(t_list *stack, int *value)
 {
 	while (stack)
 	{
@@ -23,9 +23,9 @@ static int check_dups(t_list *stack, int *value)
 	return (0);
 }
 
-int list_len(t_list *ls)
+int			list_len(t_list *ls)
 {
-	int len;
+	int		len;
 
 	len = 0;
 	while (ls)
@@ -36,7 +36,7 @@ int list_len(t_list *ls)
 	return (len);
 }
 
-static int av_to_int(char *av, int *value)
+static int	av_to_int(char *av, int *value)
 {
 	int		num;
 	int		neg;
@@ -65,8 +65,7 @@ static int av_to_int(char *av, int *value)
 	return (0);
 }
 
-
-static int addstackarray(t_list **stack, char *av)
+static int	addstackarray(t_list **stack, char *av)
 {
 	char	**split;
 	int		value;
@@ -74,7 +73,6 @@ static int addstackarray(t_list **stack, char *av)
 
 	i = 0;
 	split = ft_strsplit(av, ' ');
-
 	while (split[i])
 		i++;
 	while (i)
@@ -91,25 +89,9 @@ static int addstackarray(t_list **stack, char *av)
 	return (0);
 }
 
-int *moveto_array(t_list *stack, int stack_len)
+int			create_stack(int ac, char **av, t_stack **st)
 {
-	int *a;
-	int i;
-
-	i = 0;
-	a = init_array(stack_len);
-	while (stack)
-	{
-		a[i] = *(int*)stack->content;
-		i++;
-		stack = stack->next;
-	}
-	return (a);
-}
-
-int create_stack(int ac, char **av, t_stack **st)
-{
-	t_list *a;
+	t_list	*a;
 
 	a = NULL;
 	while (--ac)

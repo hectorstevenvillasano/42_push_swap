@@ -6,13 +6,13 @@
 /*   By: hvillasa <hvillasa@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/27 01:23:29 by hvillasa          #+#    #+#             */
-/*   Updated: 2017/05/27 01:23:33 by hvillasa         ###   ########.fr       */
+/*   Updated: 2017/05/27 16:18:00 by hvillasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int set_features(t_stack *stack, char **av)
+static int	set_features(t_stack *stack, char **av)
 {
 	if (!ft_strcmp(av[1], "-v"))
 		stack->features = 1;
@@ -25,7 +25,7 @@ static int set_features(t_stack *stack, char **av)
 	return (1);
 }
 
-int main(int ac, char **av)
+int			main(int ac, char **av)
 {
 	char	*input;
 	t_stack	*stack;

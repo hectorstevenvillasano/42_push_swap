@@ -12,6 +12,22 @@
 
 #include "push_swap.h"
 
+int		*moveto_array(t_list *stack, int stack_len)
+{
+	int	*a;
+	int	i;
+
+	i = 0;
+	a = init_array(stack_len);
+	while (stack)
+	{
+		a[i] = *(int*)stack->content;
+		i++;
+		stack = stack->next;
+	}
+	return (a);
+}
+
 int 		*init_array(int size)
 {
 	int		*ar;

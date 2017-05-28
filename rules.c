@@ -6,7 +6,7 @@
 /*   By: hvillasa <hvillasa@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/27 01:25:57 by hvillasa          #+#    #+#             */
-/*   Updated: 2017/05/27 01:26:05 by hvillasa         ###   ########.fr       */
+/*   Updated: 2017/05/27 18:29:05 by hvillasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int		ps_swap(t_stack *stack, char option)
 
 int		ps_push(t_stack *stack, char option)
 {
-	int temp;
+	int	temp;
 
 	if (option == 'a' && stack->size_b > 0)
 	{
@@ -60,8 +60,8 @@ int		ps_push(t_stack *stack, char option)
 
 int		ps_rotate(t_stack *stack, char option)
 {
-	int temp;
-	int i;
+	int	temp;
+	int	i;
 
 	if (option == 'a' || option == 'c')
 	{
@@ -84,8 +84,8 @@ int		ps_rotate(t_stack *stack, char option)
 
 int		ps_reverse_rotate(t_stack *stack, char option)
 {
-	int temp;
-	int i;
+	int	temp;
+	int	i;
 
 	if (option == 'a' || option == 'c')
 	{
@@ -107,7 +107,8 @@ int		ps_reverse_rotate(t_stack *stack, char option)
 }
 
 
-void apply_operations(t_stack *stack, char *input)
+
+void	apply_operations(t_stack *stack, char *input)
 {
 	if (!ft_strcmp(input, "sa"))
 		ps_swap(stack, 'a');
@@ -133,38 +134,5 @@ void apply_operations(t_stack *stack, char *input)
 		ps_reverse_rotate(stack, 'b');
 	else if (!ft_strcmp(input, "rrr"))
 		ps_reverse_rotate(stack, 'c');
-	if (stack->features == 1)
-	{
-		ft_putstr("\n\noperation: ");
-		ft_putstr(input);
-		ft_putstr("\n");
-		print_stacks(stack);
-	}
+	prints(stack, input);
 }
-/*
-up is right
-down is right
-	sa:	swap a - swap the first two elements on top of stack a. Do nothing if
-				 there is only one element.
-	sb:	swap b - swap the first two elements on top of stack b. Do nothing if
-				 there is only one element.
-	ss: sa and sb at the same time
-
-	pa: push a - take the first element on top of b and put it on top of a.
-				 do nothing if b is empty;
-	pb: push b - take the first element on top of a and put it on top of b.
-				 do nothing if a is empty;
-
-	ra:	rotate a - shift up all elements of stack a by 1. The first element
-				   becomes the last one.
-	rb: rotate b - shift up all elements of stack b by 1. The first element
-				   becomes the last one.
-	rr: ra and rb at the same time;
-
-	rra: reverse rotate a - shift down all elements of stack a by 1.
-							The last element becomes the first.
-	rra: reverse rotate b  - shift down all elements of stack b by 1.
-							The last element becomes the first.
-	rrr: rra and rrb at the saem time
-
-*/
